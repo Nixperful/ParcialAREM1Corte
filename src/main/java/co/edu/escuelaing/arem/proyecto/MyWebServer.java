@@ -80,7 +80,7 @@ public class MyWebServer {
                     }
 
                     outputLine = "HTTP/1.1 200 OK\r\n"
-                     + "Content-Type: text/html\r\n"
+                     + "Content-Type: image/png\r\n"
                      + "\r\n"
                      + "<!DOCTYPE html>\n"
                      + "<html>\n"
@@ -93,6 +93,9 @@ public class MyWebServer {
                      + "</body>\n"
                      + "</html>\n"
                      +finalResource;
+                    
+                    
+                    
 
                     out.println(outputLine);
 

@@ -23,14 +23,23 @@ public class DataRecollector {
             
             System.out.println("CAMINO:  " +outputFile.toString());
             return ("<!DOCTYPE html>"
+                    +"<?php"
+                    +"$contents = all_bytes_from_created_image();"
+                    // Get the bytes from the created image.
+                    +"$base64 = base64_encode($contents);"
+                    + "?>"
                     +"<html>"
                     +"<head>"
                     +"<title>Page Title</title>"
                     +"</head>"
-                    +"<body>"
-                    +"<img src=\""+ outputFile.getSource() +"\" alt=\""+direction+"\"/>"
-                    + "</body>"
-                    + "</html>");
+                    +"<body>"  
+                    + "<img src=\"data:image/png;base64,<?php echo $base64; ?>\" alt="" />"
+                    +"<html>");
+ 
+            
+            
+            
+            
         }
         
         String resource="";
