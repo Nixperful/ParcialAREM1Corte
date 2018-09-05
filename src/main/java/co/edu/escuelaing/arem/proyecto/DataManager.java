@@ -128,14 +128,14 @@ public class DataManager {
         try {
             binaryOut = new DataOutputStream(client.getOutputStream());
             binaryOut.writeBytes("HTTP/1.1 200 OK \r\n");
-            binaryOut.writeBytes("Content-Type: image/jpeg\r\n");
+            binaryOut.writeBytes("Content-Type: image/png\r\n");
             binaryOut.writeBytes("Content-Length: " + serverAns.length);
             binaryOut.writeBytes("\r\n\r\n");
             binaryOut.write(serverAns);
-            //binaryOut.close();
+            binaryOut.close();
         } catch (IOException ex) {
             Logger.getLogger(DataManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+        }        
+     
     }
 }
