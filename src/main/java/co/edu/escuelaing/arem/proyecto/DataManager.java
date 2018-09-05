@@ -1,6 +1,5 @@
 package co.edu.escuelaing.arem.proyecto;
 
-import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -10,10 +9,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.nio.file.Files;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -82,10 +79,8 @@ public class DataManager {
 
   
     public byte[] readImage(String direction){
-            byte[] finalData = null;
-            String contentType="image/png";
-            String bytesLength="";
-            
+            byte[] finalData = new byte[]{};
+                       
             try { 
                 File graphicResource= new File("resources/" + direction);
                 System.out.println(graphicResource.getPath());
