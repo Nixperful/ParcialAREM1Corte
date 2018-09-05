@@ -25,28 +25,12 @@ public class MyWebServer {
                 Socket clientSocket = sC.getClientConnection(serverSocket);
                 RequestHandler rH = new RequestHandler(clientSocket);
                 
-                DataRecollector dR = new DataRecollector();
-                String finalResource = dR.readResource(rH.getRequest());
-                
-                
-
+                DataManager dM = new DataManager();
+                dM.sendResource(rH.getRequest(),clientSocket);
+                clientSocket.close();
             }
 
-            
-                    
-                    
-                    
-
-            out.println(outputLine);
-
-
-
-                in.close(); 
-                out.close();   
-                clientSocket.close();
-            
-            
-             
+ 
         }finally{
             serverSocket.close();
         }

@@ -24,8 +24,6 @@ class RequestHandler {
     public String getRequest() throws IOException{
         
         
-        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(
                         clientSocket.getInputStream()));
@@ -54,6 +52,7 @@ class RequestHandler {
             }
         }
         
+             
         return finalResource;
     }   
 }
