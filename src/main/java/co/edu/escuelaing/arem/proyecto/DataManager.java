@@ -88,7 +88,7 @@ public class DataManager {
             
             try { 
                 File graphicResource= new File("resources/"+direction);
-                FileInputStream inputImage = new FileInputStream(graphicResource);
+                FileInputStream inputImage = new FileInputStream(graphicResource.getPath());
                 finalData =new byte[(int) graphicResource.length()];
                 inputImage.read(finalData);
                 //inFile.close();
