@@ -82,7 +82,7 @@ public class DataManager {
             byte[] finalData = new byte[]{};
                        
             try { 
-                File graphicResource= new File("./" + direction);
+                File graphicResource= new File(direction);
                 System.out.println(graphicResource.getPath());
                 FileInputStream inputImage = new FileInputStream((graphicResource.getPath()));
                 finalData =new byte[(int) graphicResource.length()];
