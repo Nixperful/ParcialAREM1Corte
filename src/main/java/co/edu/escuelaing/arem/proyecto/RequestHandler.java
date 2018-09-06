@@ -8,19 +8,30 @@ package co.edu.escuelaing.arem.proyecto;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
  *
- * @author 2110432
+ * @author Nicolás Osorio Arias
  */
 class RequestHandler {
     Socket clientSocket;
+    
+    /**
+    *
+    * @param socket this is the socket that the RequestHandler needs to review request.
+    * @return finalResource the name of the file that client needs.
+    */
     public RequestHandler(Socket socket) {
         clientSocket= socket;
     }
     
+    
+    
+    /**
+ 
+    * @return name of the request made by the client throught GET petitions.
+    */
     public String getRequest() throws IOException{
         
         

@@ -1,16 +1,18 @@
 
 package co.edu.escuelaing.arem.proyecto;
 
-/**
- *
- * @author Nicolás
- */
 import java.net.*;
-
 import java.io.*;
 
+
+/**
+ *
+ * @author Nicolás Osorio Arias
+ * @version 1.0
+ */
 public class MyWebServer {
 
+    
     public static void main(String[] args) throws IOException {
         
         SocketConnection sC= new SocketConnection();        

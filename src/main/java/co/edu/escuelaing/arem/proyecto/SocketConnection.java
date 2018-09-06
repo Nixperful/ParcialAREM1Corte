@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package co.edu.escuelaing.arem.proyecto;
 
 import static co.edu.escuelaing.arem.proyecto.MyWebServer.getPort;
@@ -12,13 +8,17 @@ import java.net.Socket;
 
 /**
  *
- * @author 2110432
+ * @author Nicolás Osorio Arias 
  */
 class SocketConnection {
 
     public SocketConnection() {
     }
     
+    
+    /**
+    * @return sSocket Socket del servidor.
+    */    
     public ServerSocket getServerConnection(){
         
         ServerSocket sSocket = null;
@@ -32,6 +32,11 @@ class SocketConnection {
         return sSocket;
     }
     
+    /**
+    *
+    * @param serverSocket el cliente se conectará a este servidor. 
+    * @return clientSocket Socket del cliente
+    */
     public Socket getClientConnection(ServerSocket serverSocket) {
 
         Socket clientSocket = null;

@@ -14,10 +14,15 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Nicolás
+ * @author Nicolás Osorio Arias
  */
 public class DataManager {
     
+    /**
+    *
+    * @param direction Name of the file, without path.
+    * @return file, html file
+    */    
     public String readResource(String direction){
         
         String file, contentType = "";
@@ -42,42 +47,18 @@ public class DataManager {
         file = "HTTP/1.1 200 OK\r\n"
              + "Content-Type: "+ contentType+"\r\n"
              + "\r\n"
-             + "<!DOCTYPE html>\n"
-             + "<html>\n"
-             + "<head>\n"
-             + "<meta charset=\"UTF-8\">\n"
-             + "<title>Servidor Web</title>\n"
-             + "</head>\n"
-             + "<body>\n"
-             + "<h1>Petición Resuelta:</h1>\n"
-             + "</body>\n"
-             + "</html>\n"
              +resource;
         
         return file;
         
-            /*
-            try {
-                finalData = Files.readAllBytes(new File("./resources" + direction).toPath());
-                imageLength = "" + finalData.length;
-            } catch (IOException ex) {
-                Logger.getLogger(DataManager.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                    
- 
-            resource= ("<!DOCTYPE html>"
-                    +"<html>"
-                    +"<head>"
-                    +"<title>Page Title</title>"
-                    +"</head>"
-                    +"<body>"  
-                    
-                    +"</body>"  
-                    +"<html>");
-             */
+        
     }
 
-  
+    /**
+    *
+    * @param direction name of the image that you need to read.
+    * @return finalData, image in byte array.
+    */ 
     public byte[] readImage(String direction){
             byte[] finalData = new byte[]{};
                        
@@ -87,7 +68,6 @@ public class DataManager {
                 FileInputStream inputImage = new FileInputStream((graphicResource.getPath()));
                 finalData =new byte[(int) graphicResource.length()];
                 inputImage.read(finalData);
-                //inFile.close();
                 
                 
             } catch (FileNotFoundException ex) {
@@ -100,7 +80,11 @@ public class DataManager {
   
     }
 
-        
+    /**
+    *
+     * @param direction name of the resource that server needs to send.
+     * @param client Client Socket to know where to send the resource
+    */     
     public void sendResource(String direction, Socket client){
         
      
@@ -111,27 +95,40 @@ public class DataManager {
             try {
                 out = new PrintWriter(client.getOutputStream(), true);
                 out.println(serverAns);
-                //out.close();
+
             } catch (IOException ex) {
                 Logger.getLogger(DataManager.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         } else if (direction.toLowerCase().contains(".png".toLowerCase()) || direction.toLowerCase().contains(".jpg".toLowerCase())) {
             
-        }
+        
             byte[] serverAns = readImage(direction);
             DataOutputStream binaryOut;
-        try {
-            binaryOut = new DataOutputStream(client.getOutputStream());
-            binaryOut.writeBytes("HTTP/1.1 200 OK \r\n");
-            binaryOut.writeBytes("Content-Type: image/png\r\n");
-            binaryOut.writeBytes("Content-Length: " + serverAns.length);
-            binaryOut.writeBytes("\r\n\r\n");
-            binaryOut.write(serverAns);
-            binaryOut.close();
-        } catch (IOException ex) {
-            Logger.getLogger(DataManager.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+            try {
+                binaryOut = new DataOutputStream(client.getOutputStream());
+                binaryOut.writeBytes("HTTP/1.1 200 OK \r\n");
+                binaryOut.writeBytes("Content-Type: image/png\r\n");
+                binaryOut.writeBytes("Content-Length: " + serverAns.length);
+                binaryOut.writeBytes("\r\n\r\n");
+                binaryOut.write(serverAns);
+                binaryOut.close();
+            } catch (IOException ex) {
+                Logger.getLogger(DataManager.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+        }
+        else{
+            String serverAns = readResource("404error.html");
+            PrintWriter out;
+            try {
+                out = new PrintWriter(client.getOutputStream(), true);
+                out.println(serverAns);
+
+            } catch (IOException ex) {
+                Logger.getLogger(DataManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
      
     }
 }
