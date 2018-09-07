@@ -14,11 +14,9 @@ import java.util.LinkedList;
  */
 public class DataProcessor {
     LinkedList<Float> data= new LinkedList();
-    float max;
-    float min;
+    
     public DataProcessor(LinkedList data) {
-        this.max=0;
-        this.min=0;
+             
         this.data=data;
     }
 
@@ -41,23 +39,21 @@ public class DataProcessor {
     }
 
     public float getMin() {
-        if(min==0){
-            float min=data.get(0);
-            for (int i=0; i<data.size();i++){
-                if(data.get(i)<min){
-                    min=data.get(i);
-                }
+        float min=data.get(0);
+        
+        for (int i=0; i<data.size();i++){
+            if(data.get(i)<min){
+                min=data.get(i);
             }
         }
+        
         return min;
     }
     public float getMax() {
-        if(max==0){
-            float max=data.get(0);
-            for (int i=0; i<data.size();i++){
-                if(data.get(i)>max){
-                    max=data.get(i);
-                }
+        float max=data.get(0);
+        for (int i=0; i<data.size();i++){
+            if(data.get(i)>max){
+                max=data.get(i);
             }
         }
         return max;

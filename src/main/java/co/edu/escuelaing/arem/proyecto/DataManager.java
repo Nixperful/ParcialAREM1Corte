@@ -44,9 +44,10 @@ public class DataManager {
 
                 for(int i=0; i<dataNumbers.length;i++){
                     temp.add(Float.parseFloat(dataNumbers[i]));
-                }     
+                }  
+                
             }catch (Exception ex){
-            
+                System.out.println("Error al recoger los números");
             }
             
             
@@ -76,10 +77,10 @@ public class DataManager {
                 
             }
             
-            String file = "HTTP/1.1 200 OK\r\n"
+            String file = /*"HTTP/1.1 200 OK\r\n"
              + "Content-Type: application/json\r\n"
-             + "\r\n"
-             +jsonResource;
+             + "\r\n"*/
+             jsonResource.toString();
             
             PrintWriter out;
             try {
