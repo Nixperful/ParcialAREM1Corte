@@ -17,8 +17,8 @@ Es necesario correr la clase principal la cual tiene como nombre MyWebServer, co
 
 *_Instrucciones para el usuario:_*
 ------- 
-Si desea probar el servidor, es necesario que haga peticiones de los recursos que tendrá este, de lo contrario un error 404 aparecerá en pantalla. 
+Si desea probar el servidor, es necesario que dígite sus número acompañados del caracter "&" y si desea un flotante con el punto decimal.
 
-*Heroku Link DEMO: https://parcial-1corte-arem.herokuapp.com/2&3&5&6
+*Heroku Link DEMO: https://parcial-1corte-arem.herokuapp.com/2&3&5&6.4
 
 
