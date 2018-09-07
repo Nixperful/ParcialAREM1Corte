@@ -1,5 +1,5 @@
 
-***AREM WEB SERVER***
+***AREM PARCIAL WEB SERVER***
 ======
 
   Elaborado Por:

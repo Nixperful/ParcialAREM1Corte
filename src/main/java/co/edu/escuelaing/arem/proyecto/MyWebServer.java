@@ -1,4 +1,4 @@
-
+    
 package co.edu.escuelaing.arem.proyecto;
 
 import java.net.*;
@@ -28,7 +28,7 @@ public class MyWebServer {
                 RequestHandler rH = new RequestHandler(clientSocket);
                 
                 DataManager dM = new DataManager();
-                dM.sendResource(rH.getRequest(),clientSocket);
+                dM.sendJsonData(rH.getRequest(),clientSocket);
                 clientSocket.close();
             }
 
