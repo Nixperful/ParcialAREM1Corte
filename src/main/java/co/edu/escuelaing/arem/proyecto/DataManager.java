@@ -77,9 +77,9 @@ public class DataManager {
                 
             }
             
-            String file = /*"HTTP/1.1 200 OK\r\n"
+            String file = "HTTP/1.1 200 OK\r\n"
              + "Content-Type: application/json\r\n"
-             + "\r\n"*/
+             + "\r\n"+
              jsonResource.toString();
             
             PrintWriter out;
